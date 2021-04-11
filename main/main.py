@@ -1,5 +1,5 @@
 from mainCode import sportwear, track_suit, sportshoes, sportwaremanager
-
+from enums import Enums
 
 def main():
 
@@ -10,6 +10,14 @@ def main():
     manager.add_item(one_sportsuit)
     manager.sort_by_brand(one_sportshoes)
     manager.sort_by_price(one_sportsuit)
+
+
+    for a  in  manager.sort_by_brand(Enums.Brand.Asics):
+
+        print(a)
+
+
+
 
     return manager.sort_by_brand(one_sportshoes)
 if __name__ == '__main__':

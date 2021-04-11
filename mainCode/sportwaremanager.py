@@ -14,18 +14,19 @@ class SportWearManager(mainCode.sportwear.SportWear):
         return self.wears
 
     def sort_by_price(self, order):
+
         if order == Enums.SortType.ASC:
-            self.wears(sorted(mainCode.sportwear.SportWear.get_price(self)))
+            self.wears.sort(key=lambda c: c.get_price())
         else:
-            self.wears(sorted(mainCode.sportwear.SportWear.get_price(self), reverse=True))
+            self.wears.sort(key=lambda c: c.get_price(), reverse=True)
 
-    def sort_by_brand(self, order1):
+    def sort_by_brand(self, order):
 
-        if order1 == Enums.Brand:
-            self.wears(sorted(mainCode.sportwear.SportWear.get_brand(self)))
-        else:
-            self.wears(sorted(mainCode.sportwear.SportWear.get_brand(self), reverse=True))
+       if order == Enums.SortType.ASC:
+        self.wears.sort(key=lambda c: c.get_brand())
+
+       else:
+        self.wears.sort(key=lambda c: c.get_brand(), reverse=True)
 
     def add_item(self, item):
         self.wears.append(item)
-
