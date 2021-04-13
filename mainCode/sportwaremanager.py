@@ -16,15 +16,14 @@ class SportWearManager(mainCode.sportwear.SportWear):
     def sort_by_price(self, order):
 
         if order == Enums.SortType.ASC:
-            self.wears.sort(key=lambda c: c.get_price())
+            self.wears.sort(key=lambda c: c.get_price)
         else:
             self.wears.sort(key=lambda c: c.get_price(), reverse=True)
 
     def sort_by_brand(self, order):
 
        if order == Enums.SortType.ASC:
-        self.wears.sort(key=lambda c: c.get_brand())
-
+        self.wears.sort(key= lambda c: c.get_price())
        else:
         self.wears.sort(key=lambda c: c.get_brand(), reverse=True)
 
