@@ -10,8 +10,8 @@ def main():
 
     manager = sportwaremanager.SportWearManager(price=True,  brand = True, sex=True, color=True)
     manager.add_item(one_sportsuit)
-    manager.sort_by_brand(one_sportshoes)
-    manager.sort_by_price(one_sportsuit)
+    manager.sort_by_brand_DESC(one_sportshoes)
+    manager.sort_by_price_DESC(one_sportsuit)
 
 
     for items  in  manager.sort_by_brand(Enums.Brand.Nike):

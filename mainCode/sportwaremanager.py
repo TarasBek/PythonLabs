@@ -13,19 +13,20 @@ class SportWearManager(mainCode.sportwear.SportWear):
     def get_wears(self):
         return self.wears
 
-    def sort_by_price(self, order):
+    # this function sort wears by  DESC and ASC price, if the set parameter order True it will  sort  by DESC
+    # that`s why the func is  named in  such way. But you can sort wears ASC if you set order like False
 
-        if order == Enums.SortType.ASC:
-            self.wears.sort(key=lambda c: c.get_price)
-        else:
-            self.wears.sort(key=lambda c: c.get_price(), reverse=True)
+    def sort_by_price_DESC(self, order):
+        self.wears.sort(key=lambda c: c.get_price(), reverse=order)
+        return self.wears
 
-    def sort_by_brand(self, order):
+    # this function sort wears by  DESC and ASC price, if the set parameter order True it will  sort  by DESC
+    # that`s why the func is  named in  such way. But you can sort wears ASC if you set order like False
 
-       if order == Enums.SortType.ASC:
-        self.wears.sort(key= lambda c: c.get_price())
-       else:
-        self.wears.sort(key=lambda c: c.get_brand(), reverse=True)
+
+    def sort_by_brand_DESC(self, order):
+        self.wears.sort(key=lambda c: c.get_brand(), reverse=order)
+        return self.wears
 
     def add_item(self, item):
         self.wears.append(item)
