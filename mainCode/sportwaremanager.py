@@ -5,8 +5,8 @@ from mainCode import sportwear
 class SportWearManager(sportwear.SportWear):
 
     def __init__(self, wears):
-        self.wears = wears
-    wears = []
+        self.wears_list = wears
+
 
     # this function sort wears by  DESC and ASC price,
     # if the set parameter order True it will  sort  by DESC
@@ -14,10 +14,13 @@ class SportWearManager(sportwear.SportWear):
     # But you can sort wears ASC if you set order like False
 
     def sort_by_price(self, order):
+
         if order == Enums.SortType.ASC:
-            self.wears.sort(key=lambda c: c.get_price())
+            self.wears_list.sort(key=lambda c: c.get_price())
         else:
-            self.wears.sort(key=lambda c: c.get_price(), reverse=True)
+            self.wears_list.sort(key=lambda c: c.get_price(), reverse=True)
+        return self.wears_list
+
 
     # this function sort wears by  DESC and ASC price,
     # if the set parameter order True it will  sort  by DESC
@@ -26,10 +29,10 @@ class SportWearManager(sportwear.SportWear):
 
     def search_by_brand(self, brand):
         searched_brand = []
-        for items in self.wears:
+        for items in self.wears_list:
             if items.get_brand() == brand:
                 searched_brand.append(items)
-        return searched_brand
+        return True
 
     def add_item(self, item):
         self.wears.append(item)

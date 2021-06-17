@@ -3,7 +3,7 @@ from enums.Enums import Brand, Sex
 
 class SportWear:
 
-    def __init__(self, price: float, color: str, brand: Brand, sex: Sex):
+    def __init__(self, price: float, color: str, brand:  Brand, sex: Sex):
         self.price = price
         self.color = color
         self.brand = brand
