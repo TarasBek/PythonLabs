@@ -7,7 +7,6 @@ class SportWearManager(sportwear.SportWear):
     def __init__(self, wears):
         self.wears_list = wears
 
-
     # this function sort wears by  DESC and ASC price,
     # if the set parameter order True it will  sort  by DESC
     # that`s why the func is  named in  such way.
@@ -20,7 +19,6 @@ class SportWearManager(sportwear.SportWear):
         else:
             self.wears_list.sort(key=lambda c: c.get_price(), reverse=True)
         return self.wears_list
-
 
     # this function sort wears by  DESC and ASC price,
     # if the set parameter order True it will  sort  by DESC
