@@ -33,4 +33,5 @@ class SportWearManager(sportwear.SportWear):
         return True
 
     def add_item(self, item):
-        self.wears.append(item)
+        self.wears_list.append(item)
+

@@ -29,6 +29,11 @@ class TestUnderwearManager(unittest.TestCase):
     def test_search_by_brand(self):
         self.assertEqual(self.sportwaremanager.search_by_brand(self.brand), True)
 
+    def test_add_item(self):
+        self.sportwaremanager.add_item(self.first_sportshoes)
+        self.assertEqual(self.sportwaremanager.wears_list, [self.first_sportsuit, self.second_sportsuit, self.first_sportshoes])
+
+
 
 if __name__ == "__main__":
     unittest.main()
