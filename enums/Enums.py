@@ -17,5 +17,3 @@ class Sex(Enum):
 class SortType(Enum):
     ASC = 1
     DESC = 2
-
-

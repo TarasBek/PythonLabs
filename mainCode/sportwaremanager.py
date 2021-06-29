@@ -1,32 +1,37 @@
 from enums import Enums
-import mainCode
 from mainCode import sportwear
 
 
-class SportWearManager(mainCode.sportwear.SportWear):
+class SportWearManager(sportwear.SportWear):
 
-    wears = []
+    def __init__(self, wears):
+        self.wears_list = wears
 
-    def set_wears(self, wears):
-        self.wears = wears
+    # this function sort wears by  DESC and ASC price,
+    # if the set parameter order True it will  sort  by DESC
+    # that`s why the func is  named in  such way.
+    # But you can sort wears ASC if you set order like False
 
-    def get_wears(self):
-        return self.wears
+    def sort_by_price(self, order):
 
-    # this function sort wears by  DESC and ASC price, if the set parameter order True it will  sort  by DESC
-    # that`s why the func is  named in  such way. But you can sort wears ASC if you set order like False
+        if order == Enums.SortType.ASC:
+            self.wears_list.sort(key=lambda c: c.get_price())
+        else:
+            self.wears_list.sort(key=lambda c: c.get_price(), reverse=True)
+        return self.wears_list
 
-    def sort_by_price_DESC(self, order):
-        self.wears.sort(key=lambda c: c.get_price(), reverse=order)
-        return self.wears
+    # this function sort wears by  DESC and ASC price,
+    # if the set parameter order True it will  sort  by DESC
+    # that`s why the func is  named in  such way.
+    # But you can sort wears ASC if you set order like False
 
-    # this function sort wears by  DESC and ASC price, if the set parameter order True it will  sort  by DESC
-    # that`s why the func is  named in  such way. But you can sort wears ASC if you set order like False
-
-
-    def sort_by_brand_DESC(self, order):
-        self.wears.sort(key=lambda c: c.get_brand(), reverse=order)
-        return self.wears
+    def search_by_brand(self, brand):
+        searched_brand = []
+        for items in self.wears_list:
+            if items.get_brand() == brand:
+                searched_brand.append(items)
+        return True
 
     def add_item(self, item):
-        self.wears.append(item)
+        self.wears_list.append(item)
+
